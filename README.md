@@ -11,6 +11,7 @@ If not, you need to install it. Open your terminal and run
 sudo apt-get update && sudo apt-get install php-curl
 ```
 ## Demo
+![demo](https://github.com/user-attachments/assets/ce38cd44-b764-4d0c-b881-63fb3a26fa35)
 
 ## Reference
 https://www.youtube.com/watch?v=kG_3LZ2OgBI&ab_channel=WDEV</br>
