@@ -19,10 +19,6 @@
 
 <?php
     if($_POST) {
-        echo "</br><textarea readonly style=\"width: 517px; height: 189px;\">";
-        echo $_POST['g-recaptcha-response'];
-        echo "</textarea>";
-    
         $curl = curl_init();
 
         curl_setopt_array($curl, [
@@ -39,7 +35,7 @@
 
         curl_close($curl);
 
-        echo "</br></br>";
+        echo "</br>";
         print_r($response);
     }
 ?>
