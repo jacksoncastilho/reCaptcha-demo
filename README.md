@@ -15,6 +15,6 @@ sudo apt-get update && sudo apt-get install php-curl
 
 ## Reference
 https://www.youtube.com/watch?v=kG_3LZ2OgBI&ab_channel=WDEV</br>
-https://developers.google.com/recaptcha</br>
+https://www.google.com/recaptcha/admin/</br>
 https://developers.google.com/recaptcha/docs/display</br>
 https://developers.google.com/recaptcha/docs/verify</br>
