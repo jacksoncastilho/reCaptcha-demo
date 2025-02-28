@@ -2,7 +2,7 @@
 
 Make sure you have `php-curl` installed in you server
 ```
-php -m | grep curlv
+php -m | grep curl
 ```
 If "curl" is listed, cURL is enabled.
 
