@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="some-form" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LdDW-QqAAAAABAJ5lP8r1O4shPhX6gm-oz4Xx3R"></div>
+        <div class="g-recaptcha" data-sitekey="your_public_key"></div>
         <br/>
         <button>Submit</button>
     </form>
@@ -30,7 +30,7 @@
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => [
-                'secret' => '6LdDW-QqAAAAANlIClUlaAGv507jVQ8bAbqJtjCS',
+                'secret' => 'your_private_key',
                 'response' => $_POST['g-recaptcha-response'] ?? ''
             ]
         ]);
