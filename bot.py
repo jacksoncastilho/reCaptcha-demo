@@ -10,7 +10,6 @@ API_KEY = ''
 URL = 'http://localhost/reCaptcha-demo/index.php'
 
 def solveCaptcha():
-    """
     solver = recaptchaV2Proxyless()
     solver.set_verbose(1)
     solver.set_key(API_KEY)
@@ -23,7 +22,6 @@ def solveCaptcha():
         browser.execute_script(f"document.getElementById('g-recaptcha-response').innetHTML ='{response}'")
     else:
         print(solver.err_string)
-    """
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--install', type=bool, default=False, help='Automatically download, install and configure the appropriate browser drivers')
@@ -39,7 +37,7 @@ browser.get(URL)
 
 dataSiteKey = browser.find_element(By.CLASS_NAME, 'g-recaptcha').get_attribute('data-sitekey')
 
-solveCaptcha(dataSiteKey)
+#solveCaptcha(dataSiteKey)
 
 if API_KEY == '':
     gRecaptchaResponse = ''
