@@ -7,13 +7,12 @@ import argparse
 import time
 
 API_KEY = ''
-URL = 'http://localhost/reCaptcha-demo/index.php'
 
 def solveCaptcha():
     solver = recaptchaV2Proxyless()
     solver.set_verbose(1)
     solver.set_key(API_KEY)
-    solver.set_website_url(URL)
+    solver.set_website_url(args.url)
     solver.set_website_key(dataSiteKey)
 
     response = solver.solve_and_return_solution()
@@ -24,6 +23,7 @@ def solveCaptcha():
         print(solver.err_string)
 
 parser = argparse.ArgumentParser()
+parser.add_argument('-url', type=str, required=True, help='Target url. E.g: http://localhost/reCaptcha-solver/index.php')
 parser.add_argument('-i', '--install', type=bool, default=False, help='Automatically download, install and configure the appropriate browser drivers')
 
 args = parser.parse_args()
@@ -33,7 +33,7 @@ if args.install:
 else:
     browser = webdriver.Firefox()
 
-browser.get(URL)
+browser.get(args.url)
 
 dataSiteKey = browser.find_element(By.CLASS_NAME, 'g-recaptcha').get_attribute('data-sitekey')
 
