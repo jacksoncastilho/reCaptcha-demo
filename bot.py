@@ -39,7 +39,7 @@ browser.get(URL)
 
 dataSiteKey = browser.find_element(By.CLASS_NAME, 'g-recaptcha').get_attribute('data-sitekey')
 
-#solveCaptcha(dataSiteKey)
+solveCaptcha(dataSiteKey)
 
 if API_KEY == '':
     gRecaptchaResponse = ''
