@@ -7,6 +7,23 @@ import argparse
 import time
 
 API_KEY = ''
+URL = 'http://localhost/reCaptcha-demo/index.php'
+
+def solveCaptcha():
+    """
+    solver = recaptchaV2Proxyless()
+    solver.set_verbose(1)
+    solver.set_key(API_KEY)
+    solver.set_website_url(URL)
+    solver.set_website_key(dataSiteKey)
+
+    response = solver.solve_and_return_solution()
+
+    if response != 0:
+        browser.execute_script(f"document.getElementById('g-recaptcha-response').innetHTML ='{response}'")
+    else:
+        print(solver.err_string)
+    """
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--install', type=bool, default=False, help='Automatically download, install and configure the appropriate browser drivers')
@@ -18,26 +35,11 @@ if args.install:
 else:
     browser = webdriver.Firefox()
 
-url = 'http://localhost/reCaptcha-demo/index.php'
-
-browser.get(url)
+browser.get(URL)
 
 dataSiteKey = browser.find_element(By.CLASS_NAME, 'g-recaptcha').get_attribute('data-sitekey')
 
-"""
-solver = recaptchaV2Proxyless()
-solver.set_verbose(1)
-solver.set_key(API_KEY)
-solver.set_website_url(url)
-solver.set_website_key(dataSiteKey)
-
-response = solver.solve_and_return_solution()
-
-if response != 0:
-    browser.execute_script(f"document.getElementById('g-recaptcha-response').innetHTML ='{response}'")
-else:
-    print(solver.err_string)
-"""
+#solveCaptcha(dataSiteKey)
 
 if API_KEY == '':
     gRecaptchaResponse = ''
@@ -53,5 +55,5 @@ if API_KEY == '':
 
     browser.execute_script(f"alert('{gRecaptchaResponse}')")
 
-    time.sleep(20)
+    time.sleep(15)
     browser.quit()
